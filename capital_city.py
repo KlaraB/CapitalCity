@@ -1,4 +1,5 @@
-__author__ = 'U269074'
+__author__ = 'u269074'
+import random
 
 capital_city = {
     "United Kingdom": "London",
@@ -18,29 +19,23 @@ capital_city = {
     "Swiss": "Bern",
     "Portugal": "Lisbon"
 }
+answer = "yes"
 
-answer = "kdo pa ve"
-
-while answer != "da":
-    answer = raw_input("Do you want to guess a capital city? ")
+while answer == "yes":
+    answer = raw_input("Do you want to guess a capital city(yes/no)? ")
 
     if answer == "yes":
-        for country in capital_city:
-            odg2 = raw_input("What is the capital city of " + str(country) + "? ")
+        country = random.choice(capital_city.keys())
+        odg2 = raw_input("What is the capital city of " + str(country) + "? ")
 
-            if odg2.lower() == capital_city[country].lower():
-                print("Your answer is correct!")
-                answer = raw_input("Do you want to guess a capital city? ")
-                if answer == "no":
-                    break
-
-            else:
-                print("Sorry your answer is not correct. Try another one!")
+        if odg2.lower() == capital_city[country].lower():
+            print("Your answer is correct!")
+        else:
+            print("Sorry, try again!")
 
     elif answer == "no":
-        print("Okay, maybe next time!")
-        break
+        print("Ok, maybe next time!")
     else:
-        print("Sorry, we don't understand, let's try again!")
+        print("Error")
 
 
